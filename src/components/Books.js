@@ -1,18 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const Books = () => {
-  const { title, author } = useState();
+const Books = (props) => {
+  const bookprops = props;
+  const { title, author } = bookprops;
   return (
     <div>
-      <ul>
-        <li>{title}</li>
-        <li>{author}</li>
-      </ul>
-      <ul>
-        <li>Comment </li>
-        <li>Remove </li>
-        <li>Edit </li>
-      </ul>
+      <h2>{title}</h2>
+      <p>{author}</p>
+      <button type="button">Remove</button>
     </div>
   );
 };

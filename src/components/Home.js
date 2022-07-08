@@ -3,8 +3,8 @@ import Books from './Books';
 import AddBook from './AddBook';
 
 const books = [{
-  title: 'Fifty Shades of Blue',
-  author: 'Fabien',
+  title: 'My Life in Crime',
+  author: 'John Kiriamiti',
   id: 1,
 }];
 

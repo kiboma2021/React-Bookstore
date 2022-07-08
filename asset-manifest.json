@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/React-Bookstore/static/css/main.073c9b0a.css",
+    "main.js": "/React-Bookstore/static/js/main.60fee6f2.js",
+    "static/js/787.4ba6415a.chunk.js": "/React-Bookstore/static/js/787.4ba6415a.chunk.js",
+    "static/media/logo.svg": "/React-Bookstore/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/React-Bookstore/index.html",
+    "main.073c9b0a.css.map": "/React-Bookstore/static/css/main.073c9b0a.css.map",
+    "main.60fee6f2.js.map": "/React-Bookstore/static/js/main.60fee6f2.js.map",
+    "787.4ba6415a.chunk.js.map": "/React-Bookstore/static/js/787.4ba6415a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.60fee6f2.js"
+  ]
+}

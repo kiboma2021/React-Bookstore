@@ -5,3 +5,8 @@ const addBook = (book) => ({
   type: ADD_BOOK,
   id: addBook.id,
 });
+
+const removeBook = (book) => ({
+  type: REMOVE_BOOK,
+  id: addBook.id,
+});

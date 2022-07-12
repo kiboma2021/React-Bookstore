@@ -1,14 +1,14 @@
 const ADD_BOOK = 'bookstore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
 
-const addBook = (book) => ({
+export const addBook = (book) => ({
   type: ADD_BOOK,
-  id: addBook.id,
+  id: book.id,
 });
 
-const removeBook = (book) => ({
+export const removeBook = (book) => ({
   type: REMOVE_BOOK,
-  id: addBook.id,
+  id: book.id,
 });
 
 const booksReducer = (state = [], action) => {
@@ -23,3 +23,5 @@ const booksReducer = (state = [], action) => {
       return state;
   }
 };
+
+export default booksReducer;

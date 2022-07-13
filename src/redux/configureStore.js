@@ -8,5 +8,5 @@ const mainReducer = combineReducers({
 });
 
 const store = configureStore(mainReducer);
-
+export default store;
 store.dispatch(booksReducer);

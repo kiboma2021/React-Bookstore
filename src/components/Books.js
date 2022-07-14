@@ -9,8 +9,8 @@ const Books = (props) => {
 
   const handleRemove = (id) => {
     dispatch(removeBook(id));
-    console.log(id);
   };
+
   return (
     <div>
       <h2>{title}</h2>

@@ -28,3 +28,4 @@ const bookSlice = createSlice({
 });
 
 export const { newBook } = bookSlice.actions;
+export default bookSlice.reducer;

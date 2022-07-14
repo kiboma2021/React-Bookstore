@@ -7,7 +7,7 @@ export const status = () => ({
 
 const statusReducer = (state = [], action) => {
   if (action.type === CHECK_STATUS) {
-    return action.text;
+    return [...state, action.text];
   }
   return state;
 };

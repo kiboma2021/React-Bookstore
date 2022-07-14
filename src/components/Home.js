@@ -1,21 +1,20 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import Books from './Books';
 import AddBook from './AddBook';
 
-const books = [{
-  title: 'My Life in Crime',
-  author: 'John Kiriamiti',
-  id: 1,
-}];
+const Home = () => {
+  const books = useSelector((state) => state.books);
 
-const Home = () => (
-  <div>
-    <ul>
-      {books.map((book) => (
-        <Books key={book.id} title={book.title} author={book.author} />
-      ))}
-    </ul>
-    <AddBook />
-  </div>
-);
+  return (
+    <div>
+      <ul>
+        {books.map((book) => (
+          <Books key={book.id} id={book.id} title={book.title} author={book.author} />
+        ))}
+      </ul>
+      <AddBook />
+    </div>
+  );
+};
 export default Home;

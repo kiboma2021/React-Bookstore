@@ -1,24 +1,18 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addNewBook } from '../redux/books/books';
+import { addBook } from '../redux/books/books';
+import newBook from '../redux/books/AddNewBook';
 
 const AddBook = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
-  const [category, setCategory] = useState('');
   const dispatch = useDispatch();
 
   const onSubmit = (event) => {
     event.preventDefault();
-    dispatch(addNewBook({
-      title,
-      author,
-      id: Date.now(),
-      category,
-    }));
+    dispatch(addBook(newBook(title, author)));
     setTitle('');
     setAuthor('');
-    setCategory('');
   };
 
   return (

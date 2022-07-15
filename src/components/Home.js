@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getBooksToDisplay } from '../redux/books/books';
+import { getBooksApi } from '../redux/books/books';
 import Books from './Books';
 import AddBook from './AddBook';
 
@@ -9,8 +9,8 @@ const Home = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getBooksToDisplay(books));
-  }, [dispatch]);
+    dispatch(getBooksApi());
+  }, []);
 
   return (
     <div>

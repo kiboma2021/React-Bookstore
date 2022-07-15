@@ -1,10 +1,10 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const ADD_BOOK = 'bookstore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
 const API_URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/OkbgJL1hxwuld1j7wBke/books';
 
-const getBooksAsync = createAsyncThunk(
+export const getBooksAsync = createAsyncThunk(
   'books/getBooksAsync',
   // eslint-disable-next-line consistent-return
   async () => {
@@ -50,5 +50,13 @@ const booksReducer = (state = defaultState, action) => {
       return state;
   }
 };
+
+export const booksApp = createSlice({
+  name: 'books',
+  initialState: defaultState,
+  extraReducers: {
+    [getBooksAsync.fulfilled]: (state, action) => action.payload.books,
+  },
+});
 
 export default booksReducer;

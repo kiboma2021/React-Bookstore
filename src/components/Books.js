@@ -12,10 +12,17 @@ const Books = (props) => {
   };
 
   return (
-    <div>
-      <h2>{title}</h2>
-      <p>{author}</p>
-      <button onClick={() => handleRemove(id)} type="button">Remove</button>
+    <div className="display-book">
+      <div className="books-uppersection">
+        <p>Science</p>
+        <h2>{title}</h2>
+        <p>{author}</p>
+      </div>
+      <div className="books-lowersection">
+        <button type="button" className="bookdisplay-btn">Comments</button>
+        <button onClick={() => handleRemove(id)} type="button">Remove</button>
+        <button type="button" className="bookdisplay-btn">Edit</button>
+      </div>
     </div>
   );
 };

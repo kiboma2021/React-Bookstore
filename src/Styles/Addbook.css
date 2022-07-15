@@ -23,4 +23,7 @@
 .input-btn {
   width: 15%;
   background-color: #0290ff;
+  border-style: none;
+  font-weight: bold;
+  color: white;
 }

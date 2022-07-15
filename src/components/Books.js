@@ -14,7 +14,7 @@ const Books = (props) => {
   };
 
   const randomperc1 = Math.floor(Math.random() * 100);
-
+  const randomchapter = Math.floor(Math.random() * 35);
   return (
     <div className="display-book">
       <div className="book-details">
@@ -41,7 +41,14 @@ const Books = (props) => {
           <p>Completed</p>
         </div>
       </div>
-      <
+      <div>
+        <p>CURRENT CHAPTER</p>
+        <p>
+          Chapter
+          {randomchapter}
+        </p>
+        <button type="button" className="updateprogress-btn">UPDATE PROGRESS</button>
+      </div>
     </div>
   );
 };

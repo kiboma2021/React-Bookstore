@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
-  const books = useSelector((state) => state.books);
+  const { books } = useSelector((state) => state.books);
   return (
     <nav>
       <div>

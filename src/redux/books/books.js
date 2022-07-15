@@ -1,38 +1,76 @@
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+
+const initialState = { books: [], status: null };
+const GET = 'bookstore/books/GET';
 const ADD_BOOK = 'bookstore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
-const defaultState = [
-  {
-    title: 'Crime',
-    author: 'John',
-    id: 1,
-  },
-  {
-    title: 'Crime2',
-    author: 'Kiriamiti',
-    id: 2,
-  },
-];
+const baseURL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/k4hZBndBgwpSkVcHLsUq/books';
 
-export const addBook = (id) => ({
-  type: ADD_BOOK,
-  id,
-});
+const bookList = (obj) => {
+  const result = [];
+  const keys = Object.keys(obj);
 
-export const removeBook = (id) => ({
-  type: REMOVE_BOOK,
-  id,
-});
-
-const booksReducer = (state = defaultState, action) => {
-  switch (action.type) {
-    case ADD_BOOK:
-      return [...state, action.id];
-
-    case REMOVE_BOOK:
-      return state.filter((book) => book.id !== action.id);
-    default:
-      return state;
-  }
+  keys.forEach((item) => {
+    result.push({
+      id: item,
+      title: obj[item][0].title,
+      author: obj[item][0].author,
+      category: obj[item][0].category,
+    });
+  });
+  return result;
 };
 
-export default booksReducer;
+export const getBooksApi = createAsyncThunk(GET, async () => {
+  const result = await fetch(baseURL, {
+    method: 'GET',
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  });
+  const data = await result.json();
+  return bookList(data);
+});
+
+export const addBook = createAsyncThunk(ADD_BOOK, async (payload, thunk) => (
+  fetch(baseURL, {
+    method: 'POST',
+    body: JSON.stringify(payload),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  }).then(() => {
+    thunk.dispatch(getBooksApi());
+  })
+));
+
+export const removeBook = createAsyncThunk(REMOVE_BOOK, async (id, thunk) => (
+  fetch(`${baseURL}/${id}`, {
+    method: 'DELETE',
+    body: JSON.stringify({
+      item_id: id,
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  }).then(() => {
+    thunk.dispatch(getBooksApi());
+  })
+));
+
+const booksApp = createSlice({
+  name: 'books',
+  initialState,
+  extraReducers: {
+    [getBooksApi.pending]: (state) => ({
+      ...state,
+      status: 'loading',
+    }),
+    [getBooksApi.fulfilled]: (state, action) => ({
+      ...state,
+      books: action.payload,
+    }),
+  },
+});
+
+export default booksApp.reducer;

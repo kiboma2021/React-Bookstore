@@ -3,6 +3,7 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { useDispatch } from 'react-redux';
 import { removeBook } from '../redux/books/books';
+import '../Styles/BookList.css';
 
 const Books = (props) => {
   const dispatch = useDispatch();
@@ -15,11 +16,13 @@ const Books = (props) => {
 
   const randomperc1 = Math.floor(Math.random() * 100);
   const randomchapter = Math.floor(Math.random() * 35);
+  const booktypes = ['Action', 'Science Fiction', 'Economy', 'Mathematics', 'Geography'];
+
   return (
     <div className="display-book">
       <div className="book-details">
         <div className="books-uppersection">
-          <p>Science</p>
+          <p>{booktypes[Math.floor(Math.random() * booktypes.length)]}</p>
           <h2>{title}</h2>
           <p>{author}</p>
         </div>
@@ -41,7 +44,7 @@ const Books = (props) => {
           <p>Completed</p>
         </div>
       </div>
-      <div>
+      <div className="progress-chapter">
         <p>CURRENT CHAPTER</p>
         <p>
           Chapter

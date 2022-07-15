@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import newBook from '../redux/books/AddNewBook';
 import { addBook } from '../redux/books/books';
+import '../Styles/Addbook.css';
 
 const AddBook = () => {
   const [title, setTitle] = useState('');
@@ -16,8 +17,8 @@ const AddBook = () => {
   };
 
   return (
-    <div>
-      <h2>ADD NEW BOOK</h2>
+    <div className="Add-new-book">
+      <h2 className="Add-tittle">ADD NEW BOOK</h2>
       <form onSubmit={onSubmit} className="form-container">
         <input
           type="text"
@@ -35,7 +36,7 @@ const AddBook = () => {
           onChange={(event) => setAuthor(event.target.value)}
           className="input-author"
         />
-        <button type="submit">ADD BOOK</button>
+        <button className="input-btn" type="submit">ADD BOOK</button>
       </form>
     </div>
   );

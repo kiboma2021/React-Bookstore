@@ -1,0 +1,26 @@
+.Add-new-book {
+  padding: 2rem;
+}
+
+.Add-tittle {
+  color: rgb(86, 84, 84);
+}
+
+.form-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-book {
+  width: 45%;
+  height: 2rem;
+}
+
+.input-author {
+  width: 25%;
+}
+
+.input-btn {
+  width: 15%;
+  background-color: #0290ff;
+}

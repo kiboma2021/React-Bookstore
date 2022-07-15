@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { removeBook } from '../redux/books/books';
+import { removeBookFromList } from '../redux/books/books';
 
 const Books = (props) => {
   const dispatch = useDispatch();
@@ -8,14 +8,16 @@ const Books = (props) => {
   const { id, title, author } = bookprops;
 
   const handleRemove = (id) => {
-    dispatch(removeBook(id));
+    dispatch(removeBookFromList(id));
   };
 
   return (
     <div>
-      <h2>{title}</h2>
-      <p>{author}</p>
-      <button onClick={() => handleRemove(id)} type="button">Remove</button>
+      <li id={id}>
+        <h2>{title}</h2>
+        <p>{author}</p>
+        <button id={id} onClick={() => handleRemove(id)} type="button">Remove</button>
+      </li>
     </div>
   );
 };

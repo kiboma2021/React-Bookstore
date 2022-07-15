@@ -7,11 +7,13 @@ const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
 const baseURL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/OkbgJL1hxwuld1j7wBke/books';
 
 const booksReducer = (state = [], action) => {
+  let bookArr;
   switch (action.type) {
     case GET:
       return action.book;
     case ADD_BOOK:
-      return [...state, action.id];
+      bookArr = [...state, action.id];
+      return bookArr;
     case REMOVE_BOOK:
       return state.filter((book) => book.id !== action.id);
     default:
@@ -29,9 +31,9 @@ export const removeBook = (id) => ({
   id,
 });
 
-export const getBook = (book) => ({
+export const getBook = (id) => ({
   type: GET,
-  book,
+  id,
 });
 
 export const addNewBook = (book) => async (dispatch) => {
@@ -44,7 +46,7 @@ export const addNewBook = (book) => async (dispatch) => {
     author,
     category,
   };
-  // post the new book in the server
+  // post to the server
   await axios.post(baseURL, newBook);
   dispatch(addBook(book));
 };
@@ -58,4 +60,10 @@ export const getBooksToDisplay = createAsyncThunk(GET, async () => {
 
   return objectOfBooks;
 });
+
+export const removeBookFromList = (id) => async (dispatch) => {
+  await axios.delete(`${baseURL}/${id}`);
+  dispatch(removeBook(id));
+};
+
 export default booksReducer;

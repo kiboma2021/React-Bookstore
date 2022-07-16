@@ -1,0 +1,23 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 4rem;
+}
+
+.left-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+ul {
+  list-style: none;
+}
+
+.logo > h1 {
+  color: #0290ff;
+  font-size: 1.875rem;
+  font-weight: bold;
+}

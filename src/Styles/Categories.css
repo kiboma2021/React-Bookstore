@@ -1,0 +1,18 @@
+.check-status {
+  margin: 4rem;
+}
+
+.check-status > button {
+  background-color: #0290ff;
+  color: white;
+  font-weight: bold;
+  width: 11.5rem;
+  height: 2.063rem;
+  border-radius: 3px;
+  border: none;
+}
+
+.status-name {
+  color: red;
+  font-size: 2rem;
+}

@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { checkStatus } from '../redux/categories/categories';
+import '../Styles/Categories.css';
 
 const Categories = () => {
   const dispatch = useDispatch();
@@ -8,8 +9,8 @@ const Categories = () => {
     dispatch(checkStatus());
   };
   return (
-    <div>
-      <p>{status}</p>
+    <div className="check-status">
+      <p className="status-name">{status}</p>
       <button type="button" onClick={checkForStatus}>
         Check status
       </button>

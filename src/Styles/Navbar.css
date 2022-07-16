@@ -2,7 +2,8 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 4rem;
+  margin: 2rem 4rem;
+  background-color: #fff;
 }
 
 .left-nav {
@@ -12,12 +13,24 @@ nav {
   gap: 3rem;
 }
 
-ul {
+.myLinks {
   list-style: none;
+  display: flex;
+  gap: 2.5rem;
+}
+
+.myLinks > li {
+  font-size: 1rem;
+  color: #121212;
 }
 
 .logo > h1 {
   color: #0290ff;
   font-size: 1.875rem;
   font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }

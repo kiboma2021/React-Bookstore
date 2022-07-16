@@ -12,7 +12,7 @@ const Navbar = () => {
         <div className="logo">
           <h1>Bookstore CMS</h1>
         </div>
-        <ul>
+        <ul className="myLinks">
           <li>
             <NavLink to="/">
               BOOKS(
@@ -27,7 +27,7 @@ const Navbar = () => {
       </div>
       <div className="right-nav">
         <div className="avatar">
-          <AccountCircleIcon fontSize="large" sx={{ color: '#0290ff' }} />
+          <AccountCircleIcon fontSize="large" color="primary" sx={{ color: '#0290ff' }} />
         </div>
       </div>
     </nav>

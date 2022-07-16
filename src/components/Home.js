@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getBooksApi } from '../redux/books/books';
 import Books from './Books';
 import AddBook from './AddBook';
+import '../Styles/Home.css';
 
 const Home = () => {
   const { books } = useSelector((state) => state.books);
@@ -13,7 +14,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <div className="home-page">
       <ul>
         {books.map((book) => (
           <Books
